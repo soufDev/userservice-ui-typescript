@@ -1,0 +1,452 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "guid": "533d7b53-a10c-4078-ba41-7d9b9d50f122",
+      "isActive": true,
+      "balance": "$2,877.35",
+      "picture": "http://placehold.it/256x256",
+      "age": 26,
+      "eyeColor": "blue",
+      "name": {
+        "first": "Shannon",
+        "last": "Mccray"
+      },
+      "company": "OLYMPIX",
+      "email": "shannon.mccray@olympix.biz",
+      "phoneNumber": "+1 (908) 516-3654",
+      "address": "679 Concord Street, Hiwasse, American Samoa, 2134",
+      "about": "Mollit exercitation ea tempor ex pariatur in enim sunt id ullamco ullamco nisi. Esse tempor in mollit non aliquip. Quis cillum enim excepteur veniam culpa anim irure aute in. Ullamco elit laborum sunt nulla laborum mollit. Minim id nisi amet cupidatat consequat qui. Anim commodo non eu voluptate tempor.",
+      "birthDate": "Monday, July 20, 1992 4:45 AM",
+      "latitude": "42.336345",
+      "longitude": "128.165144",
+      "tags": [
+        "incididunt",
+        "exercitation",
+        "consequat",
+        "anim",
+        "ex"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Carr Newton"
+        },
+        {
+          "id": 1,
+          "name": "Lakeisha Cook"
+        },
+        {
+          "id": 2,
+          "name": "Myrna Bonner"
+        }
+      ],
+      "greeting": "Hello, Shannon! You have 8 unread messages.",
+      "favoriteFruit": "strawberry"
+    },
+    {
+      "id": 2,
+      "guid": "72189c8f-c795-40d8-9621-a9a9d2e2f7db",
+      "isActive": true,
+      "balance": "$1,541.81",
+      "picture": "http://placehold.it/256x256",
+      "age": 24,
+      "eyeColor": "brown",
+      "name": {
+        "first": "Mindy",
+        "last": "Clark"
+      },
+      "company": "GENESYNK",
+      "email": "mindy.clark@genesynk.me",
+      "phoneNumber": "+1 (867) 599-2629",
+      "address": "222 Clifton Place, Welda, South Carolina, 4364",
+      "about": "Dolore qui consequat proident cillum amet deserunt laboris id occaecat cupidatat deserunt. In sint duis cupidatat fugiat nostrud minim ipsum ad reprehenderit ad non pariatur et velit. Consequat ex pariatur eiusmod nisi quis. Ea elit elit incididunt cupidatat pariatur fugiat ad do aliqua esse amet laboris mollit dolor.",
+      "birthDate": "Thursday, August 20, 1992 10:24 AM",
+      "latitude": "-58.813963",
+      "longitude": "-106.184875",
+      "tags": [
+        "duis",
+        "in",
+        "nisi",
+        "culpa",
+        "id"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Pacheco Sandoval"
+        },
+        {
+          "id": 1,
+          "name": "Hopper Ortiz"
+        },
+        {
+          "id": 2,
+          "name": "Weber Olson"
+        }
+      ],
+      "greeting": "Hello, Mindy! You have 6 unread messages.",
+      "favoriteFruit": "banana"
+    },
+    {
+      "id": 3,
+      "guid": "38490341-0571-4fe9-9e5b-6fc1a771c9b0",
+      "isActive": true,
+      "balance": "$3,412.02",
+      "picture": "http://placehold.it/256x256",
+      "age": 32,
+      "eyeColor": "blue",
+      "name": {
+        "first": "Alicia",
+        "last": "Langley"
+      },
+      "company": "MANTRIX",
+      "email": "alicia.langley@mantrix.info",
+      "phoneNumber": "+1 (987) 471-3729",
+      "address": "753 Lincoln Road, Yettem, Alaska, 6176",
+      "about": "Ipsum fugiat laborum labore cillum non eu ipsum laboris amet voluptate reprehenderit labore eu qui. Nulla id in sunt duis irure dolor officia. Excepteur duis elit anim qui fugiat id nisi non nostrud eu esse commodo in. Exercitation aliquip et ullamco incididunt adipisicing Lorem culpa culpa. Velit fugiat magna nisi officia. Occaecat quis labore sit amet elit adipisicing fugiat ut eiusmod Lorem. Dolore sint dolor Lorem commodo sunt officia ut proident irure cupidatat ex.",
+      "birthDate": "Sunday, April 27, 1997 7:27 AM",
+      "latitude": "24.41185",
+      "longitude": "-59.571904",
+      "tags": [
+        "mollit",
+        "aliqua",
+        "qui",
+        "cupidatat",
+        "pariatur"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Sylvia Larsen"
+        },
+        {
+          "id": 1,
+          "name": "Vivian Slater"
+        },
+        {
+          "id": 2,
+          "name": "June Travis"
+        }
+      ],
+      "greeting": "Hello, Alicia! You have 7 unread messages.",
+      "favoriteFruit": "apple"
+    },
+    {
+      "id": 4,
+      "guid": "44f75e7b-9e54-4d81-821a-930121bcc2f3",
+      "isActive": true,
+      "balance": "$1,620.78",
+      "picture": "http://placehold.it/256x256",
+      "age": 35,
+      "eyeColor": "blue",
+      "name": {
+        "first": "Pitts",
+        "last": "Cobb"
+      },
+      "company": "MAXEMIA",
+      "email": "pitts.cobb@maxemia.us",
+      "phoneNumber": "+1 (954) 599-3190",
+      "address": "545 Florence Avenue, Fingerville, Georgia, 1676",
+      "about": "Occaecat sit velit velit velit do duis anim ut ex et occaecat do irure. Lorem sit do sint deserunt velit qui esse incididunt ex. Dolore in sit ad reprehenderit nulla et sint est duis officia consequat. Proident amet laborum laborum labore.",
+      "birthDate": "Friday, March 9, 2018 1:27 PM",
+      "latitude": "-16.39289",
+      "longitude": "-136.479816",
+      "tags": [
+        "enim",
+        "ipsum",
+        "minim",
+        "ea",
+        "pariatur"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Madeline Randall"
+        },
+        {
+          "id": 1,
+          "name": "Daugherty Elliott"
+        },
+        {
+          "id": 2,
+          "name": "Marisa Richard"
+        }
+      ],
+      "greeting": "Hello, Pitts! You have 9 unread messages.",
+      "favoriteFruit": "strawberry"
+    },
+    {
+      "id": 5,
+      "guid": "c8351ddc-be7b-45d7-b299-be62042c6ae9",
+      "isActive": true,
+      "balance": "$2,298.35",
+      "picture": "http://placehold.it/256x256",
+      "age": 38,
+      "eyeColor": "brown",
+      "name": {
+        "first": "Patel",
+        "last": "Farrell"
+      },
+      "company": "KONGLE",
+      "email": "patel.farrell@kongle.biz",
+      "phoneNumber": "+1 (989) 587-2560",
+      "address": "142 Montgomery Place, Lavalette, Palau, 295",
+      "about": "Dolore esse reprehenderit do aliquip amet excepteur cillum consectetur excepteur sit culpa nostrud nisi fugiat. Magna ad adipisicing occaecat sit aute tempor aute. Excepteur cupidatat do deserunt duis sunt tempor eiusmod do. Veniam quis duis do amet id aute ea velit consequat magna elit. Ut ex ex exercitation labore laboris magna consectetur ex irure ullamco sit.",
+      "birthDate": "Friday, January 27, 2006 12:32 PM",
+      "latitude": "-41.514426",
+      "longitude": "-2.793974",
+      "tags": [
+        "nulla",
+        "ipsum",
+        "quis",
+        "nulla",
+        "exercitation"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Gallegos Nunez"
+        },
+        {
+          "id": 1,
+          "name": "Diann Grimes"
+        },
+        {
+          "id": 2,
+          "name": "Bobbie Guerra"
+        }
+      ],
+      "greeting": "Hello, Patel! You have 10 unread messages.",
+      "favoriteFruit": "strawberry"
+    },
+    {
+      "id": 6,
+      "guid": "ca392fd8-0c2c-48a4-b18e-1eb68fb15afc",
+      "isActive": false,
+      "balance": "$2,509.73",
+      "picture": "http://placehold.it/256x256",
+      "age": 29,
+      "eyeColor": "blue",
+      "name": {
+        "first": "Mai",
+        "last": "Pittman"
+      },
+      "company": "CONCILITY",
+      "email": "mai.pittman@concility.name",
+      "phoneNumber": "+1 (821) 570-2718",
+      "address": "643 President Street, Hiko, Iowa, 2269",
+      "about": "Anim irure aute cupidatat officia consequat magna id et dolor quis Lorem. Id officia sunt occaecat eiusmod proident labore nostrud non. Anim veniam qui ut ex duis officia irure sint ex sint ea nisi nulla. Dolore adipisicing excepteur est elit velit Lorem veniam velit enim amet Lorem culpa est cupidatat.",
+      "birthDate": "Wednesday, November 16, 2011 10:55 AM",
+      "latitude": "77.885339",
+      "longitude": "162.616845",
+      "tags": [
+        "irure",
+        "et",
+        "et",
+        "aute",
+        "culpa"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Workman Hays"
+        },
+        {
+          "id": 1,
+          "name": "West Hobbs"
+        },
+        {
+          "id": 2,
+          "name": "Henderson Head"
+        }
+      ],
+      "greeting": "Hello, Mai! You have 7 unread messages.",
+      "favoriteFruit": "banana"
+    },
+    {
+      "id": 7,
+      "guid": "b5f8f516-cbd5-4d9a-8ec8-c98373c8728e",
+      "isActive": false,
+      "balance": "$1,173.28",
+      "picture": "http://placehold.it/256x256",
+      "age": 29,
+      "eyeColor": "brown",
+      "name": {
+        "first": "Alexandra",
+        "last": "Franklin"
+      },
+      "company": "PODUNK",
+      "email": "alexandra.franklin@podunk.com",
+      "phoneNumber": "+1 (878) 490-3221",
+      "address": "549 Garnet Street, Herlong, Ohio, 7917",
+      "about": "Nulla aliquip ea amet excepteur id consequat. Sint dolore non adipisicing ad aliqua et velit. Sunt enim mollit fugiat do mollit et. Non et cupidatat est sint aliqua in exercitation ipsum laborum esse nostrud exercitation eiusmod. Ea ea anim nisi laborum culpa reprehenderit. Id deserunt consequat id dolor amet. Eiusmod ipsum mollit ex esse proident Lorem aliqua consequat commodo ea esse.",
+      "birthDate": "Saturday, April 17, 1999 12:19 PM",
+      "latitude": "24.398565",
+      "longitude": "-179.979824",
+      "tags": [
+        "consequat",
+        "excepteur",
+        "labore",
+        "ea",
+        "ut"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Langley Jefferson"
+        },
+        {
+          "id": 1,
+          "name": "Nadia Manning"
+        },
+        {
+          "id": 2,
+          "name": "Margret Dudley"
+        }
+      ],
+      "greeting": "Hello, Alexandra! You have 7 unread messages.",
+      "favoriteFruit": "banana"
+    },
+    {
+      "id": 8,
+      "guid": "b9a8e32e-1a7f-4af6-8a2b-bf680ab56637",
+      "isActive": true,
+      "balance": "$1,062.07",
+      "picture": "http://placehold.it/256x256",
+      "age": 40,
+      "eyeColor": "blue",
+      "name": {
+        "first": "Candace",
+        "last": "Fuentes"
+      },
+      "company": "EPLOSION",
+      "email": "candace.fuentes@eplosion.org",
+      "phoneNumber": "+1 (829) 417-2420",
+      "address": "113 Cropsey Avenue, Unionville, Montana, 8136",
+      "about": "Labore aliqua adipisicing sunt adipisicing sunt non tempor pariatur nostrud incididunt ea laborum quis ad. Laboris Lorem consectetur deserunt occaecat ex esse incididunt ullamco nisi dolor exercitation et. Quis ipsum sint nulla dolore. Sit adipisicing eiusmod deserunt excepteur irure et laborum veniam ex. Do consequat ullamco aliqua eu. Non exercitation consequat dolore enim ea ad anim sunt duis aliquip elit.",
+      "birthDate": "Monday, May 19, 2003 7:07 PM",
+      "latitude": "-28.367736",
+      "longitude": "-40.093213",
+      "tags": [
+        "qui",
+        "nostrud",
+        "laborum",
+        "sit",
+        "sint"
+      ],
+      "range": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "friends": [
+        {
+          "id": 0,
+          "name": "Small Mann"
+        },
+        {
+          "id": 1,
+          "name": "Singleton Thomas"
+        },
+        {
+          "id": 2,
+          "name": "Gregory Edwards"
+        }
+      ],
+      "greeting": "Hello, Candace! You have 9 unread messages.",
+      "favoriteFruit": "banana"
+    }
+  ]
+}

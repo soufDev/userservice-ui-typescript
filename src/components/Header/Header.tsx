@@ -4,6 +4,9 @@ import { SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 export interface HeaderProps {
+  history: {
+    push: (path: string) => void;
+  };
 }
 
 export interface HeaderState {

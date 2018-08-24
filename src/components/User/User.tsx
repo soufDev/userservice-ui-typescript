@@ -6,7 +6,7 @@ export interface UserProps {
 export interface UserState {
 }
 
-class User extends React.Component<UserProps, UserState> {
+class User extends React.PureComponent<UserProps, UserState> {
   state: UserState = {};
 
   render() {
