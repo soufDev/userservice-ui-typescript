@@ -21,7 +21,8 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
   }
 
   async componentDidMount() {
-    const response = await axios.get(API_PATH);
+    const response = await axios.get(`${API_PATH}users`);
+    console.log(response);
     this.setState({ users: response.data });
   }
 

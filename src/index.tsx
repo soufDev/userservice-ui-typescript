@@ -4,8 +4,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
+export function renderApp() {
+  return <App/>;
+}
+
 ReactDOM.render(
-  <App />,
+  renderApp(),
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
