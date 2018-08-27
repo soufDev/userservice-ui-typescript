@@ -1,47 +1,53 @@
 import * as React from 'react';
-import axios from 'axios';
 import { Card } from 'semantic-ui-react';
-import { API_PATH } from '../../utils/constUrls';
 import { User } from '../../entities/User';
 import UserCard from './Card';
+import { UsersState } from '../../types/users';
+import { Dispatch } from 'redux';
+import { FETCH_USERS, FETCH_USERS_IF_NEEDED } from '../../Redux/constants/User';
+import { State } from '../../types';
+import { selectUsers } from '../../Selectors/User';
+import { connect } from 'react-redux';
 export interface HomeProps {
-
+  users: UsersState;
+  fetchUsersIfNeeded(): void;
+  fetchUsers(): void;
 }
 
-export interface HomeState {
-  users: User[];
-}
-
-class Home extends React.PureComponent<HomeProps, HomeState> {
-  constructor(props: HomeProps) {
-    super(props);
-    this.state = {
-      users: []
-    };
+class Home extends React.PureComponent<HomeProps> {
+  componentDidMount() {
+    this.props.fetchUsersIfNeeded();
   }
 
-  async componentDidMount() {
-    const response = await axios.get(`${API_PATH}users`);
-    console.log(response);
-    this.setState({ users: response.data });
-  }
-
-  renderUserCard() {
-    console.log({ state: this.state });
-    const { users } = this.state;
+  renderUserCard(users: Array<User>) {
     return users.map((user) => (
       <UserCard user={user} key={user.id}/>
     ));
   }
   render() {
+    console.log(this.props);
+    const { users } = this.props.users;
     return (
       <>
         <Card.Group itemsPerRow={4}>
-          {this.renderUserCard()}
+          {this.renderUserCard(users)}
         </Card.Group>
       </>
     );
   }
 }
 
-export default Home;
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    fetchUsers: () => dispatch({ type: FETCH_USERS }),
+    fetchUsersIfNeeded: () => dispatch({ type: FETCH_USERS_IF_NEEDED }),
+  };
+}
+
+function mapStateToProps(state: State) {
+  return {
+    users: selectUsers(state)
+  };
+}
+// const connector = connect(mapStateToProps, mapDispatchToProps);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

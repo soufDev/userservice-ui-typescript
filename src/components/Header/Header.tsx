@@ -4,7 +4,7 @@ import { SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 export interface HeaderProps {
-  history: {
+  history?: {
     push: (path: string) => void;
   };
 }
@@ -13,7 +13,7 @@ export interface HeaderState {
   activeItem: string;
 }
 
-class Header extends React.Component<HeaderProps & RouteComponentProps<{history: Object}>, HeaderState> {
+class Header extends React.Component<HeaderProps & RouteComponentProps<{history?: Object}>, HeaderState> {
   state: HeaderState = {
     activeItem: 'home'
   };
@@ -39,7 +39,7 @@ class Header extends React.Component<HeaderProps & RouteComponentProps<{history:
         </Menu.Item>
         <Menu.Item
           name="user"
-          active={activeItem === 'user'}
+          active={activeItem === 'users'}
           onClick={this.handleItemClick}
         >
           <Icon name="users" />Users

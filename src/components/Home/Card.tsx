@@ -6,7 +6,7 @@ interface Props {
   user: User;
 }
 const defaultProps = {
-  users: {}
+  users: []
 };
 
 class UserCard extends React.Component<Props> {
