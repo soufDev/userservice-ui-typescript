@@ -8,6 +8,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { Container } from 'semantic-ui-react';
 import AddForm from './components/User/Add';
 import EditForm from './components/User/Edit';
+import DeleteForm from './components/User/Delete';
 
 class App extends React.Component {
   state = {};
@@ -23,6 +24,7 @@ class App extends React.Component {
               <Route exact={true} path="/user" component={User} />
               <Route exact={true} path="/user/new" component={AddForm} />
               <Route exact={true} path="/user/edit/:id" component={EditForm} />
+              <Route exact={true} path="/user/delete/:id" component={DeleteForm} />
             </Container>
           </>
         </Router>
