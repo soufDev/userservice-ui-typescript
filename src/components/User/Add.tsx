@@ -1,10 +1,22 @@
 import * as React from 'react';
-import Form from './Form';
+import { Button, Grid } from 'semantic-ui-react';
+import UserForm from './Form';
 
 class Add extends React.Component {
   public render() {
     return (
-      <Form title="Add" />
+      <>
+        <UserForm title="Add" />
+        <hr/>
+        <Grid>
+          <Grid.Column width={2} floated="right">
+            <Button color="green" >Save</Button>
+          </Grid.Column>
+          <Grid.Column width={6} floated="right">
+            <Button>Cancel</Button>
+          </Grid.Column>
+        </Grid>
+      </>
     );
   }
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import User from './components/User/User';
@@ -20,11 +20,14 @@ class App extends React.Component {
           <>
             <Header />
             <Container style={{ marginTop: '7em' }}>
-              <Route exact={true} path="/" component={Home} />
-              <Route exact={true} path="/user" component={User} />
-              <Route exact={true} path="/user/new" component={AddForm} />
-              <Route exact={true} path="/user/edit/:id" component={EditForm} />
-              <Route exact={true} path="/user/delete/:id" component={DeleteForm} />
+              <Switch>
+                <Route exact={true} path="/" component={Home} />
+                <Route exact={true} path="/users" component={User} />
+                <Route path="/user/new" component={AddForm} />
+                <Route path="/user/edit/:id" component={EditForm} />
+                <Route path="/user/delete/:id" component={DeleteForm} />
+                <Route component={() => <h1>NOT FOUND</h1>} />
+              </Switch>
             </Container>
           </>
         </Router>

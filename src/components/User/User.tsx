@@ -1,6 +1,19 @@
 import * as React from 'react';
+import { Button, Icon, Table } from 'semantic-ui-react';
+import { Dispatch, State } from '../../types';
+import { selectUsers } from '../../Selectors/User';
+import { FETCH_USERS, FETCH_USERS_IF_NEEDED } from '../../Redux/constants/User';
+import { connect } from 'react-redux';
+import { User as UserEntity } from '../../entities/User';
+import { UsersState } from '../../types/users';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-export interface UserProps {
+export interface UserProps extends
+  RouteComponentProps<{ history?: { push(path: string): void } }> {
+  users: UsersState;
+  fetchUsersIfNeeded(): void;
+  fetchUsers(): void;
+
 }
 
 export interface UserState {
@@ -9,11 +22,74 @@ export interface UserState {
 class User extends React.PureComponent<UserProps, UserState> {
   state: UserState = {};
 
+  componentDidMount() {
+    this.props.fetchUsers();
+  }
+
+  renderTableData() {
+    const { users } = this.props.users;
+    return users.map((user: UserEntity, index: number)  => (
+      <Table.Row key={user.id}>
+        <Table.Cell>{index + 1}</Table.Cell>
+        <Table.Cell>{user.username}</Table.Cell>
+        <Table.Cell>{user.name.first}</Table.Cell>
+        <Table.Cell>{user.name.last}</Table.Cell>
+        <Table.Cell>{user.email}</Table.Cell>
+        <Table.Cell>
+          <Button color="green" onClick={() => this.props.history.replace(`/user/edit/${user.id}`)}>
+            <Icon name="edit" />
+            Edit
+          </Button>
+          <Button color="red" onClick={() => this.props.history.replace(`/user/delete/${user.id}`)}>
+            <Icon name="remove" />
+            Delete
+          </Button>
+        </Table.Cell>
+      </Table.Row>
+    ));
+  }
+  renderTable() {
+    return (
+      <Table celled={true}>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell />
+            <Table.HeaderCell>Username</Table.HeaderCell>
+            <Table.HeaderCell>First Name</Table.HeaderCell>
+            <Table.HeaderCell>Last Name</Table.HeaderCell>
+            <Table.HeaderCell>Email</Table.HeaderCell>
+            <Table.HeaderCell>
+              <Button primary={true} onClick={() => this.props.history.replace('/user/new')}>
+                <Icon name="add user" />
+                Add
+              </Button>
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {this.renderTableData()}
+        </Table.Body>
+      </Table>
+    );
+  }
+
   render() {
     return (
-      <h1>Users</h1>
+      <>
+        <h1>Users</h1>
+        {this.renderTable()}
+      </>
     );
   }
 }
 
-export default User;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  fetchUsers: () => dispatch({ type: FETCH_USERS }),
+  fetchUsersIfNeeded: () => dispatch({ type: FETCH_USERS_IF_NEEDED }),
+});
+
+const mapStateToProps = (state: State) => ({
+  users: selectUsers(state)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(User));
