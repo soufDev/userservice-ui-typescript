@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Button, Grid } from 'semantic-ui-react';
 import UserForm from './Form';
+import { RouteComponentProps } from 'react-router';
 
-class Add extends React.Component {
+class Add extends React.Component<RouteComponentProps<{ history: Object }>> {
   public render() {
     return (
       <>
@@ -13,7 +14,7 @@ class Add extends React.Component {
             <Button color="green" >Save</Button>
           </Grid.Column>
           <Grid.Column width={6} floated="right">
-            <Button>Cancel</Button>
+            <Button onClick={() => this.props.history.push('/users')}>Cancel</Button>
           </Grid.Column>
         </Grid>
       </>
