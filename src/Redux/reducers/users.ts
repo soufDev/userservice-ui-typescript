@@ -1,4 +1,4 @@
-import { UsersState as State, UsersAction as Action } from '../../types/users';
+import { UserState as State, UsersAction as Action } from '../../types/users';
 
 function users(
   state: State = { users: [], isFetching: false },
@@ -8,6 +8,7 @@ function users(
     case 'FETCH_USERS_REQUEST':
       return {
         ...state,
+        users: [],
         isFetching: true
       };
     case 'FETCH_USERS_SUCCESS':
@@ -19,6 +20,23 @@ function users(
       return {
         users: [],
         isFetching: false
+      };
+    case 'ADD_USER_REQUEST':
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case 'ADD_USER_SUCCESS':
+      return {
+        ...state,
+        isFetching: false,
+        users: { ...users, ...action.payload }
+      };
+    case 'ADD_USER_FAILURE':
+      return {
+        ...state,
+        isFetching: false,
+        message: action.payload,
       };
     default: return state;
   }

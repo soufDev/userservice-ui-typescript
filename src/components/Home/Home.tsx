@@ -2,14 +2,15 @@ import * as React from 'react';
 import { Card } from 'semantic-ui-react';
 import { User } from '../../entities/User';
 import UserCard from './Card';
-import { UsersState } from '../../types/users';
+import { UserState } from '../../types/users';
 import { Dispatch } from 'redux';
 import { FETCH_USERS, FETCH_USERS_IF_NEEDED } from '../../Redux/constants/User';
 import { State } from '../../types';
 import { selectUsers } from '../../Selectors/User';
 import { connect } from 'react-redux';
+
 export interface HomeProps {
-  users: UsersState;
+  userState: UserState;
   fetchUsersIfNeeded(): void;
   fetchUsers(): void;
 }
@@ -19,14 +20,14 @@ class Home extends React.PureComponent<HomeProps> {
     this.props.fetchUsersIfNeeded();
   }
 
-  renderUserCard(users: Array<User>) {
+  renderUserCard(users: Array<User> = []) {
     return users.map((user) => (
       <UserCard user={user} key={user.id}/>
     ));
   }
   render() {
     console.log(this.props);
-    const { users } = this.props.users;
+    const { users } = this.props.userState;
     return (
       <>
         <Card.Group itemsPerRow={4}>
@@ -46,7 +47,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
 
 function mapStateToProps(state: State) {
   return {
-    users: selectUsers(state)
+    userState: selectUsers(state)
   };
 }
 // const connector = connect(mapStateToProps, mapDispatchToProps);

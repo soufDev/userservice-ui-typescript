@@ -9,6 +9,10 @@ export function fetchUser(id: number): Promise<User> | Promise<{}> {
   return service.get(`users/${id}`);
 }
 
+export function addUser(payload: User): Promise<User> {
+    return service.create('/users', payload);
+}
+
 export function updateUser(payload: User): Promise<User> | Promise<{}> {
   const { id, ...rest } = payload;
   return service.update(`users/${id}`, rest);

@@ -1,7 +1,6 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { fetchUsers as fetchUsersFromApi } from '../../api/users';
 import { selectUsers } from '../../Selectors/User';
-// import { selectUsers } from '../../Selectors/User';
 
 function* fetchUsers() {
   yield put({ type: 'FETCH_USERS_REQUEST' });
@@ -20,7 +19,6 @@ export function* watchFetchUsers() {
 export function* fetchUsersIfNeeded() {
   try {
     const { users }  = yield select(selectUsers);
-    console.log({ users });
     if (users.length === 0) {
       yield call(fetchUsers);
     }

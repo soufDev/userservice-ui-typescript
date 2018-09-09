@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { Button, Grid } from 'semantic-ui-react';
 import UserForm from './Form';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router-dom';
+import { User } from '../../entities/User';
 
-class Add extends React.Component<RouteComponentProps<{ history: Object }>> {
+interface AddUserProps extends
+    RouteComponentProps<{ history: Object }> {
+  userState: User;
+}
+class Add extends React.Component<AddUserProps> {
   public render() {
     return (
       <>

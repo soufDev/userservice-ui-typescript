@@ -5,29 +5,28 @@ import { selectUsers } from '../../Selectors/User';
 import { FETCH_USERS, FETCH_USERS_IF_NEEDED } from '../../Redux/constants/User';
 import { connect } from 'react-redux';
 import { User as UserEntity } from '../../entities/User';
-import { UsersState } from '../../types/users';
+import { UserState } from '../../types/users';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 export interface UserProps extends
   RouteComponentProps<{ history?: { push(path: string): void } }> {
-  users: UsersState;
+  userState: UserState;
   fetchUsersIfNeeded(): void;
   fetchUsers(): void;
 
 }
 
-export interface UserState {
+interface StateUser {
 }
 
-class User extends React.PureComponent<UserProps, UserState> {
-  state: UserState = {};
+class User extends React.PureComponent<UserProps, StateUser> {
+  state: StateUser = {};
 
   componentDidMount() {
-    this.props.fetchUsers();
+    this.props.fetchUsersIfNeeded();
   }
 
-  renderTableData() {
-    const { users } = this.props.users;
+  renderTableData(users: UserEntity[] = []) {
     return users.map((user: UserEntity, index: number)  => (
       <Table.Row key={user.id}>
         <Table.Cell>{index + 1}</Table.Cell>
@@ -49,6 +48,7 @@ class User extends React.PureComponent<UserProps, UserState> {
     ));
   }
   renderTable() {
+    const { users } = this.props.userState || { users: [] };
     return (
       <Table celled={true}>
         <Table.Header>
@@ -67,7 +67,7 @@ class User extends React.PureComponent<UserProps, UserState> {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {this.renderTableData()}
+          {this.renderTableData(users)}
         </Table.Body>
       </Table>
     );
@@ -89,7 +89,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 });
 
 const mapStateToProps = (state: State) => ({
-  users: selectUsers(state)
+  userState: selectUsers(state)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(User));

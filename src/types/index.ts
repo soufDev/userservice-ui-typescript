@@ -1,9 +1,9 @@
 import { Store as ReduxStore, Dispatch as ReduxDispatch } from 'redux';
-import { UsersAction, UsersState } from './users';
+import { UsersAction, UserState } from './users';
 
 export interface State {
   entities: {
-    users: UsersState;
+    users: UserState;
   };
 }
 
