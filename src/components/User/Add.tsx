@@ -7,8 +7,16 @@ import { User } from '../../entities/User';
 interface AddUserProps extends
     RouteComponentProps<{ history: Object }> {
   userState: User;
+  createUser(): User;
 }
-class Add extends React.Component<AddUserProps> {
+
+interface AddUserState {
+  user: User;
+}
+
+class Add extends React.Component<AddUserProps, AddUserState> {
+  state: AddUserState;
+  
   public render() {
     return (
       <>
