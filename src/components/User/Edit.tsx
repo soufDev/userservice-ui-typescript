@@ -3,11 +3,26 @@ import Form from './Form';
 import { Grid, Button } from 'semantic-ui-react';
 import { RouteComponentProps } from 'react-router';
 
+const user = {
+  id: '',
+  username: '',
+  email: '',
+  name: { first: '', last: '' },
+  birthDate: '',
+  phoneNumber: '',
+  about: '',
+  isActive: false,
+  address: '',
+  picture: '',
+  friends: [
+    { id: 0, name: '' }
+  ],
+};
 class Edit extends React.Component<RouteComponentProps<{ history: Object }>> {
   public render() {
     return  (
       <>
-        <Form title="Edit" />
+        <Form title="Edit" user={user} />
         <hr/>
         <Grid>
           <Grid.Column width={2} floated="right">

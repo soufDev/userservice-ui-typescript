@@ -4,13 +4,11 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 
 interface Props {
   user: User;
+  users?: User[];
 }
-const defaultProps = {
-  users: []
-};
 
 class UserCard extends React.Component<Props> {
-  static defaultProps = defaultProps;
+  static defaultProps: Partial<Props> = { users: [] };
   render() {
     return (
       <Card>
