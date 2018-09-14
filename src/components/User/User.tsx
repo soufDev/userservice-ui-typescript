@@ -31,8 +31,8 @@ class User extends React.PureComponent<UserProps, StateUser> {
       <Table.Row key={user.id}>
         <Table.Cell>{index + 1}</Table.Cell>
         <Table.Cell>{user.username}</Table.Cell>
-        <Table.Cell>{user.name.first}</Table.Cell>
-        <Table.Cell>{user.name.last}</Table.Cell>
+        <Table.Cell>{user.firstname}</Table.Cell>
+        <Table.Cell>{user.lastname}</Table.Cell>
         <Table.Cell>{user.email}</Table.Cell>
         <Table.Cell>
           <Button color="green" onClick={() => this.props.history.replace(`/user/edit/${user.id}`)}>

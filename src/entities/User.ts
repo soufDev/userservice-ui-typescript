@@ -2,14 +2,15 @@ export interface User {
   id: string;
   username: string;
   email: string;
-  name: Name;
-  birthDate: string;
-  phoneNumber: string;
-  about: string;
-  isActive: boolean;
-  address: string;
-  picture: string;
-  friends: Friend[];
+  firstname: string;
+  lastname: string;
+  birthDate?: string;
+  phoneNumber?: string;
+  about?: string;
+  isActive?: boolean;
+  address?: string;
+  picture?: string;
+  friends?: Friend[];
 }
 
 export interface Friend {

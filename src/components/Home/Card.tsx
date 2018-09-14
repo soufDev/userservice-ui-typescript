@@ -3,7 +3,7 @@ import { User } from '../../entities/User';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 interface Props {
-  user: User;
+  user: Partial<User>;
   users?: User[];
 }
 
@@ -14,7 +14,7 @@ class UserCard extends React.Component<Props> {
       <Card>
         <Image src={this.props.user.picture} />
         <Card.Content>
-          <Card.Header>{this.props.user.name.first}</Card.Header>
+          <Card.Header>{this.props.user.firstname}</Card.Header>
           <Card.Meta>
             <span className="date">Born in {this.props.user.birthDate}</span>
           </Card.Meta>
