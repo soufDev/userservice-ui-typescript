@@ -35,6 +35,16 @@ const UserForm: React.StatelessComponent<Props> = (props: Props) => {
       <h1>User</h1>
       <Form>
         <Form.Field>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            placeholder="Username"
+            value={props.user.username}
+            onChange={props.onChange}
+            name="lastname"
+          />
+        </Form.Field>
+        <Form.Field>
           <label htmlFor="">First Name</label>
           <input
             type="text"
