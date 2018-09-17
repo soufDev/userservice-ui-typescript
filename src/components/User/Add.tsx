@@ -3,10 +3,10 @@ import { Button, Grid } from 'semantic-ui-react';
 import UserForm from './Form';
 import { RouteComponentProps } from 'react-router-dom';
 import { User } from '../../entities/User';
-import { FormEvent } from 'react';
+import { FormEvent, SyntheticEvent } from 'react';
 
 interface AddUserProps extends
-    RouteComponentProps<{ history?: Object }> {
+    RouteComponentProps<{ history?: string }> {
   userState?: User;
   createUser?: () => User;
   user?: User;
@@ -26,7 +26,7 @@ const defaultProps = {
     birthDate: '',
     phoneNumber: '',
     about: '',
-    isActive: false,
+    isActive: true,
     address: '',
     picture: '',
     friends: [
@@ -50,15 +50,23 @@ class Add extends React.Component<AddUserProps, AddUserState> {
       }
     };
     this.onChange = this.onChange.bind(this);
+    this.handleRadio = this.handleRadio.bind(this);
   }
   public onChange(e: FormEvent<EventTarget>) {
     let target = e.target as HTMLInputElement;
     const { name, value } = target;
-    console.log({ name, value });
-    console.log({ state: this });
     let { user } = this.state;
-    user[`${target.name}`] = target.value;
+    user[`${name}`] = value;
     this.setState( { user });
+  }
+
+  public handleRadio(event: SyntheticEvent<EventTarget>, data: { name: string, value: string }) {
+    console.log({ data });
+    const { name, value } = data;
+    console.log({ name, value });
+    let { user } = this.state;
+    user[`${name}`] = value === 'true';
+    this.setState({ user });
   }
 
   public render() {
@@ -66,7 +74,7 @@ class Add extends React.Component<AddUserProps, AddUserState> {
     const { user } = this.state;
     return (
       <>
-        <UserForm title="Add" user={user} onChange={this.onChange}/>
+        <UserForm title="Add" user={user} onChange={this.onChange} handleRadio={this.handleRadio}/>
         <hr/>
         <Grid>
           <Grid.Column width={2} floated="right">

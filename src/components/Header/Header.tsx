@@ -3,8 +3,7 @@ import { Menu, Icon } from 'semantic-ui-react';
 import { SyntheticEvent } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-export interface HeaderProps extends RouteComponentProps<{history?: Object}> {
-}
+export interface HeaderProps extends RouteComponentProps<{history?: string}> {}
 
 export interface HeaderState {
   activeItem: string;

@@ -9,7 +9,7 @@ import { UserState } from '../../types/users';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 export interface UserProps extends
-  RouteComponentProps<{ history?: { push(path: string): void } }> {
+  RouteComponentProps<{ history?: string }> {
   userState: UserState;
   fetchUsersIfNeeded(): void;
   fetchUsers(): void;

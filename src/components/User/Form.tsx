@@ -5,6 +5,7 @@ import { User } from '../../entities/User';
 
 interface Props {
   onChange?: (event: SyntheticEvent) => void;
+  handleRadio?: (event: SyntheticEvent, data: { name: string, value: string }) => void;
   title: string;
   user?: User;
 }
@@ -71,18 +72,18 @@ const UserForm: React.StatelessComponent<Props> = (props: Props) => {
         <Form.Group inline={true}>
           <label htmlFor="">Active</label>
           <Form.Radio
-            name="active"
+            name="isActive"
             label="Enabled"
-            value="enable"
-            checked={true}
-            onChange={() => console.log('onChange')}
+            value="true"
+            checked={props.user.isActive}
+            onChange={props.handleRadio}
           />
           <Form.Radio
-            name="active"
+            name="isActive"
             label="Disable"
-            value="Disable"
-            checked={false}
-            onChange={() => console.log('onChange')}
+            value="false"
+            checked={!props.user.isActive}
+            onChange={props.handleRadio}
           />
         </Form.Group>
         <Form.TextArea

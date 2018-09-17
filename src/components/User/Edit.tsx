@@ -19,7 +19,7 @@ const user = {
     { id: 0, name: '' }
   ],
 };
-class Edit extends React.Component<RouteComponentProps<{ history: Object }>> {
+class Edit extends React.Component<RouteComponentProps<{ history: string }>> {
   public render() {
     return  (
       <>
