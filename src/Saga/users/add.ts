@@ -5,6 +5,7 @@ import navigateTo from '../../services/navigation';
 import { ActionUserType } from '../../types/users';
 
 function* addUser(action: ActionUserType) {
+    console.log({ action });
     yield put({ type: ADD_USER_REQUEST });
     try {
         const newUser = yield call(apiAddUser, action.payload);

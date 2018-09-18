@@ -17,7 +17,7 @@ export type UsersAction =
   | { type: 'FETCH_USERS_REQUEST' }
   | { type: 'FETCH_USERS_SUCCESS', payload: User[] }
   | { type: 'FETCH_USERS_FAILURE' }
-  | { type: 'ADD_USER'}
+  | { type: 'ADD_USER', payload: Partial<User>}
   | { type: 'ADD_USER_REQUEST' }
   | { type: 'ADD_USER_SUCCESS', payload: User }
   | { type: 'ADD_USER_FAILURE', payload: string };

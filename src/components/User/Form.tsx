@@ -7,7 +7,7 @@ interface Props {
   onChange?: (event: SyntheticEvent) => void;
   handleRadio?: (event: SyntheticEvent, data: { name: string, value: string }) => void;
   title: string;
-  user?: User;
+  user?: Partial<User>;
 }
 
 const defaultProps = {

@@ -1,19 +1,23 @@
 import * as React from 'react';
 import { Button, Grid } from 'semantic-ui-react';
 import UserForm from './Form';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { User } from '../../entities/User';
 import { FormEvent, SyntheticEvent } from 'react';
+import { addPropertiesToPartialUser } from '../../utils/helpers';
+import { Dispatch } from '../../types';
+import { ADD_USER } from '../../Redux/constants/User';
+import { connect } from 'react-redux';
 
 interface AddUserProps extends
     RouteComponentProps<{ history?: string }> {
   userState?: User;
-  createUser?: () => User;
+  createUser?: (user: Partial<User>) => void;
   user?: User;
 }
 
 interface AddUserState {
-  user: User;
+  user: Partial<User>;
 }
 
 const defaultProps = {
@@ -42,7 +46,6 @@ class Add extends React.Component<AddUserProps, AddUserState> {
     super(props);
     this.state = {
       user: {
-        id: '',
         username: '',
         email: '',
         firstname: '',
@@ -51,6 +54,7 @@ class Add extends React.Component<AddUserProps, AddUserState> {
     };
     this.onChange = this.onChange.bind(this);
     this.handleRadio = this.handleRadio.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
   public onChange(e: FormEvent<EventTarget>) {
     let target = e.target as HTMLInputElement;
@@ -69,6 +73,12 @@ class Add extends React.Component<AddUserProps, AddUserState> {
     this.setState({ user });
   }
 
+  public onSubmit() {
+    const { user } = this.state;
+    const completeUser = addPropertiesToPartialUser(user);
+    console.log(completeUser);
+    this.props.createUser(completeUser);
+  }
   public render() {
     console.log({ state: this.state });
     const { user } = this.state;
@@ -78,7 +88,7 @@ class Add extends React.Component<AddUserProps, AddUserState> {
         <hr/>
         <Grid>
           <Grid.Column width={2} floated="right">
-            <Button color="green" >Save</Button>
+            <Button color="green" onClick={this.onSubmit} >Save</Button>
           </Grid.Column>
           <Grid.Column width={6} floated="right">
             <Button onClick={() => this.props.history.push('/users')}>Cancel</Button>
@@ -89,4 +99,8 @@ class Add extends React.Component<AddUserProps, AddUserState> {
   }
 }
 
-export default Add;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  createUser: (user: Partial<User>) => dispatch({ type: ADD_USER, payload: user }),
+});
+
+export default connect(null, mapDispatchToProps)(withRouter(Add));

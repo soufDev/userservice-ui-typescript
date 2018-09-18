@@ -21,6 +21,7 @@ function users(
         users: [],
         isFetching: false
       };
+    case 'ADD_USER':
     case 'ADD_USER_REQUEST':
       return {
         ...state,
