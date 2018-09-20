@@ -22,11 +22,12 @@ interface StateUser {
 class User extends React.PureComponent<UserProps, StateUser> {
   state: StateUser = {};
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchUsersIfNeeded();
   }
 
   renderTableData(users: UserEntity[] = []) {
+    console.log('renderTableData', users);
     return users.map((user: UserEntity, index: number)  => (
       <Table.Row key={user.id}>
         <Table.Cell>{index + 1}</Table.Cell>

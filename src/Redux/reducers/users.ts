@@ -31,7 +31,7 @@ function users(
       return {
         ...state,
         isFetching: false,
-        users: { ...users, ...action.payload }
+        users: [ ...state.users, action.payload ]
       };
     case 'ADD_USER_FAILURE':
       return {

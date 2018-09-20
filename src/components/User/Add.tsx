@@ -78,6 +78,7 @@ class Add extends React.Component<AddUserProps, AddUserState> {
     const completeUser = addPropertiesToPartialUser(user);
     console.log(completeUser);
     this.props.createUser(completeUser);
+    this.props.history.push('/users');
   }
   public render() {
     console.log({ state: this.state });

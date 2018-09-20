@@ -42,7 +42,7 @@ const UserForm: React.StatelessComponent<Props> = (props: Props) => {
             placeholder="Username"
             value={props.user.username}
             onChange={props.onChange}
-            name="lastname"
+            name="username"
           />
         </Form.Field>
         <Form.Field>
