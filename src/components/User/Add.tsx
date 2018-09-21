@@ -65,9 +65,7 @@ class Add extends React.Component<AddUserProps, AddUserState> {
   }
 
   public handleRadio(event: SyntheticEvent<EventTarget>, data: { name: string, value: string }) {
-    console.log({ data });
     const { name, value } = data;
-    console.log({ name, value });
     let { user } = this.state;
     user[`${name}`] = value === 'true';
     this.setState({ user });
@@ -76,12 +74,10 @@ class Add extends React.Component<AddUserProps, AddUserState> {
   public onSubmit() {
     const { user } = this.state;
     const completeUser = addPropertiesToPartialUser(user);
-    console.log(completeUser);
     this.props.createUser(completeUser);
     this.props.history.push('/users');
   }
   public render() {
-    console.log({ state: this.state });
     const { user } = this.state;
     return (
       <>

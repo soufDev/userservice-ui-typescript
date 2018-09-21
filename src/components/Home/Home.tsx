@@ -26,7 +26,6 @@ class Home extends React.PureComponent<HomeProps> {
     ));
   }
   render() {
-    console.log(this.props);
     const { users } = this.props.userState;
     return (
       <>
