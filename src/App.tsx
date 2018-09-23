@@ -1,14 +1,26 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-import User from './components/User/User';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
 import { Container } from 'semantic-ui-react';
 import AddForm from './components/User/Add';
 import EditForm from './components/User/Edit';
 import DeleteForm from './components/User/Delete';
+// @ts-ignore
+import Loadable from 'react-loadable';
+
+import Loader from './common/Loader';
+
+const Home = Loadable({
+  loader: () => import('./components/Home/Home'),
+  loading: () => <Loader active={true} size={'massive'} />,
+});
+
+const User = Loadable({
+  loader: () => import('./components/User/User'),
+  loading: () => <Loader active={true} size={'massive'} />,
+});
 
 class App extends React.Component {
   state = {};
