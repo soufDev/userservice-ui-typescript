@@ -16,7 +16,7 @@ export interface HomeProps {
 }
 
 class Home extends React.PureComponent<HomeProps> {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchUsersIfNeeded();
   }
 

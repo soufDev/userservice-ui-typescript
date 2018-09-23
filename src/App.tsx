@@ -12,14 +12,15 @@ import Loadable from 'react-loadable';
 
 import Loader from './common/Loader';
 
+const Loading = () => <Loader active={true} size={'massive'} />;
 const Home = Loadable({
   loader: () => import('./components/Home/Home'),
-  loading: () => <Loader active={true} size={'massive'} />,
+  loading: Loading,
 });
 
 const User = Loadable({
   loader: () => import('./components/User/User'),
-  loading: () => <Loader active={true} size={'massive'} />,
+  loading: Loading,
 });
 
 class App extends React.Component {
