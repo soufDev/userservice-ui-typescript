@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import { watchFetchUsers, watchFetchUsersIfNeeded } from './users/fetch';
+import { watchFetchUsers, watchFetchUsersIfNeeded, watchGetUser } from './users/fetch';
 import watchCreateUser from './users/add';
 
 export default function* rootSaga() {
@@ -7,5 +7,6 @@ export default function* rootSaga() {
     watchFetchUsersIfNeeded(),
     watchFetchUsers(),
     watchCreateUser(),
+    watchGetUser(),
   ]);
 }

@@ -5,7 +5,7 @@ export function fetchUsers(): Promise<User> | Promise<User[]> {
   return service.get('users');
 }
 
-export function fetchUser(id: number): Promise<User> | Promise<{}> {
+export function fetchUser(id: number): Promise<Partial<User>> | Promise<{}> {
   return service.get(`users/${id}`);
 }
 

@@ -10,6 +10,7 @@ export interface UserState {
 export interface ActionUserType {
   type: string;
   payload?: User | User[];
+  id: number;
 }
 export type UsersAction =
   { type: 'FETCH_USERS' }
@@ -20,4 +21,8 @@ export type UsersAction =
   | { type: 'ADD_USER', payload: Partial<User>}
   | { type: 'ADD_USER_REQUEST' }
   | { type: 'ADD_USER_SUCCESS', payload: User }
-  | { type: 'ADD_USER_FAILURE', payload: string };
+  | { type: 'ADD_USER_FAILURE', payload: string }
+  | { type: 'GET_USER' }
+  | { type: 'GET_USER_REQUEST' }
+  | { type: 'GET_USER_SUCCESS', id: number }
+  | { type: 'GET_USER_FAILURE', error: string };
