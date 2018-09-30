@@ -1,7 +1,10 @@
 import * as React from 'react';
 import Form from './Form';
 import { Grid, Button } from 'semantic-ui-react';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
+import { User } from '../../entities/User';
+import { Dispatch } from '../../types';
+import { connect } from 'react-redux';
 
 const user = {
   id: '',
@@ -19,7 +22,18 @@ const user = {
     { id: 0, name: '' }
   ],
 };
-class Edit extends React.Component<RouteComponentProps<{ history: string }>> {
+
+interface Props extends RouteComponentProps<{ history: string, match: string }> {
+  User: Partial<User>;
+  getUser: (id: number) => void;
+}
+class Edit extends React.Component<Props> {
+
+  componentWillMount() {
+    const { params } = this.props.match;
+    this.props.getUser(params.id);
+  }
+
   public render() {
     return  (
       <>
@@ -39,4 +53,8 @@ class Edit extends React.Component<RouteComponentProps<{ history: string }>> {
   }
 }
 
-export default Edit;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  getUser: (id: number) => dispatch({ type: 'GET_USER', id }),
+});
+
+export default connect(null, mapDispatchToProps)(withRouter(Edit));
