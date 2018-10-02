@@ -22,16 +22,20 @@ const user = {
     { id: 0, name: '' }
   ],
 };
+interface RouteProps {
+  id?: string;
+}
 
-interface Props extends RouteComponentProps<{ history: string, match: string }> {
+interface Props extends RouteComponentProps<RouteProps> {
   User: Partial<User>;
-  getUser: (id: number) => void;
+  getUser: (id: string) => void;
 }
 class Edit extends React.Component<Props> {
 
   componentWillMount() {
-    const { params } = this.props.match;
-    this.props.getUser(params.id);
+    console.log(this.props);
+    const { id } = this.props.match.params;
+    this.props.getUser(id);
   }
 
   public render() {
@@ -54,7 +58,7 @@ class Edit extends React.Component<Props> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getUser: (id: number) => dispatch({ type: 'GET_USER', id }),
+  getUser: (id: string) => dispatch({ type: 'GET_USER', id }),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(Edit));

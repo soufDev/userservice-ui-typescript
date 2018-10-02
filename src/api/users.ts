@@ -1,11 +1,11 @@
 import { User } from '../entities/User';
 import service from '../api/Api';
 
-export function fetchUsers(): Promise<User> | Promise<User[]> {
+export function fetchUsers(): Promise<[]> | Promise<User[]> {
   return service.get('users');
 }
 
-export function fetchUser(id: number): Promise<Partial<User>> | Promise<{}> {
+export function fetchUser(id: string): Promise<Partial<User>> | Promise<{}> {
   return service.get(`users/${id}`);
 }
 
