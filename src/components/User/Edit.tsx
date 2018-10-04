@@ -3,34 +3,35 @@ import Form from './Form';
 import { Grid, Button } from 'semantic-ui-react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { User } from '../../entities/User';
-import { Dispatch } from '../../types';
+import { Dispatch, State } from '../../types';
 import { connect } from 'react-redux';
+import { selectUser } from '../../Selectors/User';
 
-const user = {
-  id: '',
-  username: '',
-  email: '',
-  firstname: '',
-  lastname: '',
-  birthDate: '',
-  phoneNumber: '',
-  about: '',
-  isActive: false,
-  address: '',
-  picture: '',
-  friends: [
-    { id: 0, name: '' }
-  ],
-};
+// const user = {
+//   id: '',
+//   username: '',
+//   email: '',
+//   firstname: '',
+//   lastname: '',
+//   birthDate: '',
+//   phoneNumber: '',
+//   about: '',
+//   isActive: false,
+//   address: '',
+//   picture: '',
+//   friends: [
+//     { id: 0, name: '' }
+//   ],
+// };
 interface RouteProps {
   id?: string;
 }
 
 interface Props extends RouteComponentProps<RouteProps> {
-  User: Partial<User>;
+  user: Partial<User>;
   getUser: (id: string) => void;
 }
-class Edit extends React.Component<Props> {
+class Edit extends React.Component<Props, null> {
 
   componentWillMount() {
     console.log(this.props);
@@ -39,6 +40,8 @@ class Edit extends React.Component<Props> {
   }
 
   public render() {
+    const { user } = this.props;
+    console.log(user);
     return  (
       <>
         <Form title="Edit" user={user} />
@@ -61,4 +64,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   getUser: (id: string) => dispatch({ type: 'GET_USER', id }),
 });
 
-export default connect(null, mapDispatchToProps)(withRouter(Edit));
+const mapStateToProps = (state: State) => ({
+  user: selectUser(state),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Edit));

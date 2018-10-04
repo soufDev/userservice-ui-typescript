@@ -1,9 +1,11 @@
 import { Store as ReduxStore, Dispatch as ReduxDispatch } from 'redux';
 import { UsersAction, UserState } from './users';
+import { User } from '../entities/User';
 
 export interface State {
   entities: {
     users: UserState;
+    user: Partial<User>;
   };
 }
 

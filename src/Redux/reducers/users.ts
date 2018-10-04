@@ -39,6 +39,24 @@ function users(
         isFetching: false,
         message: action.payload,
       };
+    case 'GET_USER_FAILURE':
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case 'GET_USER_SUCCESS':
+      console.log('GET_USER_SUCCESS', action.payload);
+      return {
+        ...state,
+        isFetching: false,
+        user: action.payload,
+      };
+    case 'GET_USER_FAILURE': 
+      return {
+        ...state,
+        isFetching: false,
+        error: action.error,
+      };
     default: return state;
   }
 }

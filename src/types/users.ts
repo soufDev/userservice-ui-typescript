@@ -3,7 +3,7 @@ import { User } from '../entities/User';
 export interface UserState {
   users?: User[];
   isFetching?: boolean;
-  user?: User;
+  user?: Partial<User>;
   message?: string;
 }
 

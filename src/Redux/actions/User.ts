@@ -18,9 +18,9 @@ export const getUserRequest = () => ({
   isFetching: true,
 });
 
-export const getchUserSuccess = (user: Partial<User>) => ({
+export const getchUserSuccess = (payload: Partial<User>) => ({
   type: actionTypes.GET_USER_SUCCESS,
-  user,
+  payload,
   isFetching: false,
 });
 

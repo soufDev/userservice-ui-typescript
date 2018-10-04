@@ -18,6 +18,7 @@ function* getUser(action: ActionUserType) {
   yield put(actionUsers.getUserRequest());
   try {
     const user = yield call(fetchUserFromApi, action.id);
+    console.log({ user });
     yield put(actionUsers.getchUserSuccess(user));
   } catch (e) {
     yield put(actionUsers.getUserFailure(e.message));
