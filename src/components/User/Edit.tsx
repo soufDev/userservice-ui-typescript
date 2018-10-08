@@ -31,8 +31,15 @@ interface Props extends RouteComponentProps<RouteProps> {
   user: Partial<User>;
   getUser: (id: string) => void;
 }
-class Edit extends React.Component<Props, null> {
 
+interface State {
+  user: Partial<User>;
+}
+class Edit extends React.Component<Props, State> {
+  state: State = {
+    user: {},
+  };
+  
   componentWillMount() {
     console.log(this.props);
     const { id } = this.props.match.params;
