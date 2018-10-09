@@ -27,16 +27,16 @@ interface RouteProps {
   id?: string;
 }
 
-interface Props extends RouteComponentProps<RouteProps> {
+interface PropsEditUser extends RouteComponentProps<RouteProps> {
   user: Partial<User>;
   getUser: (id: string) => void;
 }
 
-interface State {
+interface StateEditUser {
   user: Partial<User>;
 }
-class Edit extends React.Component<Props, State> {
-  state: State = {
+class Edit extends React.Component<PropsEditUser, StateEditUser> {
+  state: StateEditUser = {
     user: {},
   };
   
