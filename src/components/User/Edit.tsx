@@ -35,23 +35,30 @@ interface PropsEditUser extends RouteComponentProps<RouteProps> {
 interface StateEditUser {
   user: Partial<User>;
 }
-class Edit extends React.Component<PropsEditUser, StateEditUser> {
+class Edit extends React.PureComponent<PropsEditUser, StateEditUser> {
   state: StateEditUser = {
     user: {},
   };
   
   componentWillMount() {
-    console.log(this.props);
     const { id } = this.props.match.params;
     this.props.getUser(id);
+    console.log('will mount', this.props.user);
+  }
+
+  onChange = (event: React.FormEvent<EventTarget>) => {
+    let target = event.target as HTMLInputElement;
+    const { value, name } = target;
+    let { user } = this.state;
+    user[name] = value;
+    this.setState({ user }, () => console.log(this.state.user)); 
   }
 
   public render() {
-    const { user } = this.props;
-    console.log(user);
+    console.log('render', this.props.user);
     return  (
       <>
-        <Form title="Edit" user={user} />
+        <Form title="Edit" user={this.props.user} onChange={this.onChange} />
         <hr/>
         <Grid>
           <Grid.Column width={2} floated="right">

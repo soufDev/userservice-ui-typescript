@@ -52,22 +52,22 @@ class Add extends React.Component<AddUserProps, AddUserState> {
         lastname: '',
       }
     };
-    this.onChange = this.onChange.bind(this);
-    this.handleRadio = this.handleRadio.bind(this);
+    // this.onChange = this.onChange.bind(this);
+    // this.handleRadio = this.handleRadio.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  public onChange(e: FormEvent<EventTarget>) {
+  public onChange = (e: FormEvent<EventTarget>) => {
     let target = e.target as HTMLInputElement;
     const { name, value } = target;
     let { user } = this.state;
-    user[`${name}`] = value;
+    user[name] = value;
     this.setState( { user });
   }
 
-  public handleRadio(event: SyntheticEvent<EventTarget>, data: { name: string, value: string }) {
+  public handleRadio = (event: SyntheticEvent<EventTarget>, data: { name: string, value: string }) => {
     const { name, value } = data;
     let { user } = this.state;
-    user[`${name}`] = value === 'true';
+    user[name] = value === 'true';
     this.setState({ user });
   }
 
