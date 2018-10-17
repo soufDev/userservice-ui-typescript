@@ -55,7 +55,6 @@ class Edit extends React.PureComponent<PropsEditUser, StateEditUser> {
   }
 
   public render() {
-    console.log('render', this.props.user);
     return  (
       <>
         <Form title="Edit" user={this.props.user} onChange={this.onChange} />
