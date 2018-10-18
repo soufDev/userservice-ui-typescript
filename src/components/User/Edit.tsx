@@ -35,14 +35,13 @@ interface PropsEditUser extends RouteComponentProps<RouteProps> {
 interface StateEditUser {
   user: Partial<User>;
 }
-class Edit extends React.PureComponent<PropsEditUser, StateEditUser> {
+class Edit extends React.Component<PropsEditUser, StateEditUser> {
   state: StateEditUser = {
     user: {},
   };
 
   static getDerivedStateFromProps(props: PropsEditUser, state: StateEditUser) {
-    console.log('nextProps', props, state);
-    if (props) {
+    if (props.user) {
       return  {
         user: props.user,
       };
@@ -61,10 +60,11 @@ class Edit extends React.PureComponent<PropsEditUser, StateEditUser> {
     const { value, name } = target;
     let { user } = this.state;
     user[name] = value;
-    this.setState({ user }, () => console.log(this.state.user)); 
+    this.setState({ user }); 
   }
 
   public render() {
+    console.log('render', this.state.user);
     const { user } = this.state;
     return  (
       <>
