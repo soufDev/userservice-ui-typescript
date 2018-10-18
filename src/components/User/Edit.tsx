@@ -39,11 +39,21 @@ class Edit extends React.PureComponent<PropsEditUser, StateEditUser> {
   state: StateEditUser = {
     user: {},
   };
+
+  static getDerivedStateFromProps(props: PropsEditUser, state: StateEditUser) {
+    console.log('nextProps', props, state);
+    if (props) {
+      return  {
+        user: props.user,
+      };
+    }
+    return null;
+  }
   
-  componentWillMount() {
+  componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getUser(id);
-    console.log('will mount', this.props.user);
+    console.log('did mount', this.props.user);
   }
 
   onChange = (event: React.FormEvent<EventTarget>) => {
@@ -55,9 +65,10 @@ class Edit extends React.PureComponent<PropsEditUser, StateEditUser> {
   }
 
   public render() {
+    const { user } = this.state;
     return  (
       <>
-        <Form title="Edit" user={this.props.user} onChange={this.onChange} />
+        <Form title="Edit" user={user} onChange={this.onChange} />
         <hr/>
         <Grid>
           <Grid.Column width={2} floated="right">
