@@ -29,3 +29,9 @@ export const getUserFailure = (error: string) => ({
   error,
   isFetching: false,
 });
+
+export const editUser = (user: Partial<User>) => ({
+  type: actionTypes.UPDATE_USER,
+  user,
+  isPending: true,
+});
